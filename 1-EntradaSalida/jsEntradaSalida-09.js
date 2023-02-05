@@ -11,7 +11,6 @@ function mostrarAumento()
 	var sueldoConAumento;
 
 	sueldo = document.getElementById("txtIdSueldo").value;
-
 	sueldo = parseFloat(sueldo);
 
 	porcentajeDeAumento = sueldo * 0.1;

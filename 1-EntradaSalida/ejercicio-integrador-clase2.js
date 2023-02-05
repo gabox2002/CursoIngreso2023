@@ -9,18 +9,14 @@ function mostrar()
     var descuentoMayorista;
     
     valor = document.getElementById("txtIdValor").value;
-
     valor = parseFloat(valor);
 
-    iva = "21%";
-
     valorConIva = valor * 1.21;
-
     descuentoMayorista = valor * 0.05;
 
     TotalPagar = valorConIva - descuentoMayorista;
 
-    alert("Importe bruto: " + valor + " Iva: " + iva + " Importe con Iva: " + valorConIva + " Descuento: " + descuentoMayorista + " Total a pagar: " + TotalPagar);
+    alert("Importe bruto: " + valor + " Iva = 21% " + " Importe con Iva: " + valorConIva + " Descuento: " + descuentoMayorista + " Total a pagar: " + TotalPagar);
 
 
 }

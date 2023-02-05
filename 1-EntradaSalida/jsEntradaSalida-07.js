@@ -76,7 +76,7 @@ function dividir()
 /*
 textIdNumeroUno
 textIdNumeroDos
-alert(typeof resultado) Ve que yipo es si String o Number
+alert(typeof resultado) Ve que tipo es: String o Number
 la SUMA es el unico operador con doble funcion de sumar y concatenar
 la Division para dividir entre cero se usa IF porque deberia arrojar ERROR
 */
