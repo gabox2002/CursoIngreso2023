@@ -26,5 +26,5 @@ condicion	--> booleano (valor que puede asumir dos valores, verdadero o falso)
 Operadores
 	Aritmeticos: + , - * / %
 	Relacionales: < , > , <= , >= , == , != (permite relacionar cosas devuelven un booleano
-	Lógicos: ! (negacion), && (y logico). || (o logico) unir condiciones (trabajan con booleanos en funcion al operador y estabvlecer un nuevo valor de verdad)
+	Lógicos: ! (negacion), && (y logico). || (o logico) unir condiciones (trabajan con booleanos en funcion al operador y establecer un nuevo valor de verdad)
 */
