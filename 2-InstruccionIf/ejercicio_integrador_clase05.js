@@ -9,7 +9,7 @@ function mostrar()
 
     if(altura < 120)
     {
-        alert("No puede subirse a la montaña rusa")
+        alert("No puede subirse a la montaña rusa");
     }
     else
     {
