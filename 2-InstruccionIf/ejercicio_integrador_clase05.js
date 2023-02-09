@@ -16,7 +16,7 @@ function mostrar()
         edad = prompt("Ingrese su edad");
         edad = parseInt(edad);
 
-        if(edad < 18 || edad >= 80)
+        if(edad < 18 || edad > 80)
         {
             alert("El Monto a pagar es 200$");
         }
