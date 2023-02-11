@@ -74,6 +74,10 @@ function CalcularPrecio ()
                         }
                     }
                 }
+                else
+                {
+                precioConDescuento = precio * cantidad;
+                }
             }
         }
     }
@@ -88,6 +92,6 @@ function CalcularPrecio ()
         document.getElementById("txtIdprecioDescuento").value = precioFinal;
 
 
-        alert("Usted pago " + precioIIBB + " de Ingresos Brutos");
+        alert("Usted pagó " + precioIIBB + " de Ingresos Brutos");
     }
 }
