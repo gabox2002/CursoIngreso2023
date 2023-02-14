@@ -1,3 +1,4 @@
+// Gabriel Quispe DIV D grupo 3 Switch 10
 function mostrar()
 {
 	var estacionIngresada = txtIdEstacion.value;

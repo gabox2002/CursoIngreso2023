@@ -92,6 +92,6 @@ function CalcularPrecio ()
         document.getElementById("txtIdprecioDescuento").value = precioFinal;
 
 
-        alert("Usted pagó " + precioIIBB + " de Ingresos Brutos");
+        alert("Sub-total: " + precioConDescuento + " + IBB: " + precioIIBB  + "\n" + "Total a pagar: " + precioFinal);
     }
 }
