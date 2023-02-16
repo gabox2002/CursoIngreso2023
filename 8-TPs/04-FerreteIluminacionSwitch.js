@@ -56,7 +56,7 @@ function CalcularPrecio ()
             break;
         default:
             precioConDescuento = precioBruto - (precioBruto * 0.5);
-break;
+            break;
         }
    
     if(precioConDescuento > 120)
