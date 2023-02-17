@@ -31,7 +31,12 @@ function ComenzarIngreso ()
 	while(sexoIngresado != "F" && sexoIngresado != "M"){
 		sexoIngresado = prompt("Ingrese su sexo: F o M");
 	}
-	txtIdSexo.value = sexoIngresado;
+	if(sexoIngresado == "F"){
+		txtIdSexo.value = "Femenino";
+	}
+	else{
+		txtIdSexo.value = "Masculino";
+	}
 
 	estadoCivilIngresado = prompt(" Ingrese su estado civil:  \n1-para soltero, \n2-para casados, \n3-para divorciados \n4-para viudos");
 	estadoCivilIngresado = parseInt(estadoCivilIngresado);
@@ -40,8 +45,21 @@ function ComenzarIngreso ()
 		estadoCivilIngresado = prompt(" Ingrese su estado civil: \n1-para soltero \n2-para casados \n3-para divorciados \n4-para viudos");
 		estadoCivilIngresado = parseInt(estadoCivilIngresado);
 	}
-	txtIdEstadoCivil.value = estadoCivilIngresado;
-
+	switch(estadoCivilIngresado){
+		case 1:
+			txtIdEstadoCivil.value = "Soltero";
+			break;
+		case 2:
+			txtIdEstadoCivil.value = "Casado";
+			break;
+		case 3:
+			txtIdEstadoCivil.value = "Divorciado";
+			break;
+		case 4:
+			txtIdEstadoCivil.value = "Viudo";
+			break;
+	}
+	
 	sueldoIngresado = prompt("Ingrese su sueldo bruto");
 	sueldoIngresado = parseInt(sueldoIngresado);
 
@@ -63,5 +81,15 @@ function ComenzarIngreso ()
 	while(nacionalidadIngresada != "A" && nacionalidadIngresada != "E" && nacionalidadIngresada != "N"){
 		nacionalidadIngresada = prompt("Ingrese su nacionalidad: \n“A” para argentinos \n“E” para extranjeros \n“N” para nacionalizados");
 	}
-	txtIdNacionalidad.value = nacionalidadIngresada;
+	switch(nacionalidadIngresada){
+		case "A":
+			txtIdNacionalidad.value = "Argentino";
+			break;
+		case "E":
+			txtIdNacionalidad.value = "Extranjero";
+			break;
+		case "N":
+			txtIdNacionalidad.value = "Nacionalizado";
+			break;
+	}
 }

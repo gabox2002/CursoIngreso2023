@@ -1,4 +1,4 @@
-/*
+/* Gabriel Quispe DIV D grupo 3 While 10
 Al presionar el botón pedir  números  
 hasta que el usuario quiera, mostrar:
 1-Suma de los negativos.
