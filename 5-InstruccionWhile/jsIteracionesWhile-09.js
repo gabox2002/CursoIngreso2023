@@ -38,7 +38,7 @@ function mostrar()
 	
 	txtIdMaximo.value = numeroMaximo;
 	txtIdMinimo.value = numeroMinimo;
-
+}//FIN DE LA FUNCIÓN
 
 	/*do{		
 		respuesta = prompt("desea continuar? " );
@@ -54,4 +54,3 @@ function mostrar()
 	}
 
 	*/
-}//FIN DE LA FUNCIÓN
