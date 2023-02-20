@@ -39,18 +39,3 @@ function mostrar()
 	txtIdMaximo.value = numeroMaximo;
 	txtIdMinimo.value = numeroMinimo;
 }//FIN DE LA FUNCIÓN
-
-	/*do{		
-		respuesta = prompt("desea continuar? " );
-		if(banderaDelPrimero == 0 || numeroIngresado > numeroMaximo){
-			numeroMaximo = numeroIngresado;	
-			numeroMaximo = parseInt(numeroMaximo);
-		}
-		if(banderaDelPrimero == 0 || numeroIngresado < numeroMinimo){
-			numeroMinimo = numeroIngresado;
-			numeroMinimo = parseInt(numeroMinimo);
-			banderaDelPrimero = 1;
-		}
-	}
-
-	*/
