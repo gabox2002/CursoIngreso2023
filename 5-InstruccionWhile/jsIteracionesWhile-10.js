@@ -10,83 +10,94 @@ hasta que el usuario quiera, mostrar:
 7-Promedio de positivos.
 8-Promedios de negativos.
 9-Diferencia entre positivos y negativos, (positvos-negativos).
-10-Porcentaje de números positivos y negativos.
-11-De los positivos el más grande.
-12-De los negativos el más chico. */
+10-Maximo y minimo
+11-Porcentaje de números positivos y negativos.
+12-De los positivos el más grande.
+13-De los negativos el más chico. */
 function mostrar()
 {
 	var respuesta;
 	var numeroIngresado;
-	var sumaNegativos = 0; 
-	var sumaPositivos = 0;
-	var contadorPositivos = 0;
-	var contadorNegativos = 0;
-	var contadorCeros = 0;
-	var contadorPares = 0;
+	var sumaNegativos; //acumulador
+	var sumaPositivos; //acumulador
+	var contadorPositivos;
+	var contadorNegativos;
+	var contadorCeros;
+	var contadorPares;
 	var numeroMaximo;
 	var numeroMinimo;
-	var banderaDelPrimero = false;
-	var promedioPositivos = 0;
-	var promedioNegativos = 0;
-	var contador = 0;
+	var promedioPositivos;
+	var promedioNegativos;
+	var contador;
 	var diferencia;
 	var porcentajePositivos;
 	var porcentajeNegativos;
+	var minimoNegativo;
+	var maximoPositivo;
 
-	do
+	sumaNegativos = 0; //acumulador
+	sumaPositivos = 0; //acumulador
+	contadorPositivos = 0;
+	contadorNegativos = 0;
+	contadorCeros = 0;
+	contadorPares = 0;
+	promedioPositivos = 0;
+	promedioNegativos = 0;
+	contador = 0;
+
+	respuesta="si";
+
+	while(respuesta == "si")
 	{
 		numeroIngresado = prompt("Ingrese un número: ");
 		numeroIngresado = parseInt(numeroIngresado);
+		
+		while(numeroIngresado < -1505 || numeroIngresado > 3897){ //entre -1505 y 3897
+			numeroIngresado = prompt("Ingrese un número: ");
+			numeroIngresado = parseInt(numeroIngresado);
+		}
+		//maximo y mino para cualquier numero
+		if(numeroIngresado > numeroMaximo || contador == 0){
+			numeroMaximo = numeroIngresado;
+		}
+		if(numeroIngresado<numeroMinimo || contador == 0){
+			numeroMinimo = numeroIngresado;
+		}
 
-		contador++;
-
-		if(numeroIngresado < 0){
-			sumaNegativos = sumaNegativos + numeroIngresado;
+		if(numeroIngresado < 0){ //es negativo
+			
+			if(numeroIngresado<minimoNegativo || contadorNegativos == 0)
+			{
+				minimoNegativo = numeroIngresado;
+			}
+			sumaNegativos = sumaNegativos + numeroIngresado;//sumaNegativos += numeroIngresado;
 			contadorNegativos++;
 		}
 		else{
-			if(numeroIngresado > 0){
+			if(numeroIngresado > 0){ //es positivo
+				
+				if(numeroIngresado>maximoPositivo || contadorPositivos == 0)
+				{
+					maximoPositivo = numeroIngresado;
+				}
 				sumaPositivos = sumaPositivos + numeroIngresado;
 				contadorPositivos++;
 			}
 			else{
-				if(numeroIngresado == 0){
-					contadorCeros++;
-				}
+				contadorCeros++;
 			}
 		}
+		
 		if(numeroIngresado % 2 == 0){
 			contadorPares++;
 		}
-		if(banderaDelPrimero == false){ 
-			numeroMaximo = numeroIngresado;	
-			numeroMinimo = numeroIngresado;
+		
+		contador++;
 
-			banderaDelPrimero = true;
-		}
-		else{
-			if(numeroIngresado > numeroMaximo){
-				numeroMaximo = numeroIngresado;	
-			}
-			else{
-				if(numeroIngresado < numeroMinimo){
-					numeroMinimo = numeroIngresado
-				}
-			}
-		}
 		respuesta = prompt("desea continuar? si/no");
-		
-	}while(respuesta == "si");
+	}//Fin del while
 
-	if(contadorPositivos > 0){
-		promedioPositivos = sumaPositivos / contadorPositivos;
-	}
-		
-	if(contadorNegativos > 0){
-		promedioNegativos = sumaNegativos / contadorNegativos;
-	}
-
-	diferencia = sumaPositivos - (-sumaNegativos);
+	diferencia = sumaPositivos - sumaNegativos;
 
 	porcentajePositivos = (contadorPositivos*100) / contador;
 	porcentajePositivos = porcentajePositivos.toFixed(2)
@@ -94,27 +105,38 @@ function mostrar()
 	porcentajeNegativos = (contadorNegativos*100) / contador;
 	porcentajeNegativos = porcentajeNegativos.toFixed(2)
 	
-	document.write("La suma de negativos es: " + sumaNegativos);
-	document.write("<br>");
-	document.write("La suma de positivos es: " + sumaPositivos);
-	document.write("<br>");
-	document.write("La cantidad de positivos es: " + contadorPositivos);
-	document.write("<br>");
-	document.write("La cantidad de negativos es: " + contadorNegativos);
-	document.write("<br>");
-	document.write("La cantidad de ceros es: " + contadorCeros);
-	document.write("<br>");
-	document.write("La cantidad de números pares es: " + contadorPares);
-	document.write("<br>");
-	document.write("El promedio de positivos es: " + promedioPositivos);
-	document.write("<br>");
-	document.write("El promedio de negativos es: " + promedioNegativos);
-	document.write("<br>");
-	document.write("La diferencia entre positivos y negativos es: " + diferencia);
-	document.write("<br>");
-	document.write("El porcentaje de números positivos es de " + porcentajePositivos + "% y el porcentaje de números negativos es " + porcentajeNegativos + "%");
-	document.write("<br>");
-	document.write("El número positivo más grande es: " + numeroMaximo);
-	document.write("<br>");
-	document.write("El número negativo más chico es: " + numeroMinimo);
+	document.write("1. La suma de negativos es: " + sumaNegativos + "<br>");
+	document.write("2. La suma de positivos es: " + sumaPositivos + "<br>");
+	document.write("3. La cantidad de positivos es: " + contadorPositivos + "<br>");
+	document.write("4. La cantidad de negativos es: " + contadorNegativos + "<br>");
+	document.write("5. La cantidad de ceros es: " + contadorCeros + "<br>");
+	document.write("6. La cantidad de números pares es: " + contadorPares + "<br>");
+	
+	if(contadorPositivos > 0){
+		promedioPositivos = sumaPositivos / contadorPositivos;
+		document.write("7. El promedio de positivos es: " + promedioPositivos + "<br>");
+		document.write("12. El número positivo más grande es: " + maximoPositivo + "<br>");
+
+	}
+	else{
+		document.write("7. El promedio de positivos no se pudo calcular" + "<br>");
+		document.write("12. No hay número máximo positivo" + "<br>");
+	}
+
+	if(contadorNegativos > 0){
+		promedioNegativos = sumaNegativos / contadorNegativos;
+		document.write("8. El promedio de negativos es: " + promedioNegativos + "<br>");
+		document.write("13. El número negativo más chico es: " + minimoNegativo + "<br>");
+
+	}
+	else{
+		document.write("8. El promedio de negativos no se pudo calcular" + "<br>");
+		document.write("12. No hay número mínimo negativo" + "<br>");
+
+	}
+
+	document.write("9. La diferencia entre positivos y negativos es: " + diferencia + "<br>");
+	document.write("10. El máximo es: " + numeroMaximo + " y el mínimo es: " + numeroMinimo + "<br>");
+	document.write("11. El porcentaje de números positivos es de " + porcentajePositivos + "% y el porcentaje de números negativos es " + porcentajeNegativos + "%" + "<br>");
+
 }//FIN DE LA FUNCIÓN
