@@ -10,8 +10,10 @@ Nombre del comprador (validar que no sea un numero).
 Cantidad de pasajes (validar teniendo en cuenta lo mencionado anteriormente).
 Precio total del paquete de viaje (validar el rango posible de precio).
 Tipo de asiento (validar clase economica, clase ejecutiva, primera clase).
+
 Nota: los paquetes de viajes en clase economica no tienen ningun descuento ni aumento, los de clase ejecutiva tienen un 20% de aumento
 y los de primera clase tienen un 35% de aumento sobre el precio base del paquete.
+
 Tipo de viaje (validar si el viaje es directo o con escala).
 Tipo de destino (validar si es nacional o internacional).
 
@@ -66,7 +68,7 @@ function mostrar()
 	recaudacionQuinoto = 0;
 	precioPorPasaje = 10000;
 
-
+	
 	do{
 		do{
 			nombreVendedor = prompt("Identifiquese (Quinoto, Huesos o Pepepeposo)").toLowerCase();
@@ -88,7 +90,7 @@ function mostrar()
 			tipoDeDestino = prompt("Ingrese el tipo de destino (nacional o internacional)");
 		}while(!isNaN(tipoDeDestino) || (tipoDeDestino != "internacional" && tipoDeDestino != "nacional"));
 
-		//Punto E
+		//E) Calcular el precio final del paquete de viaje teniendo en cuenta el tipo de asiento e informarlo antes de la proxima venta con un alert
 		precioBase = precioPorPasaje * cantidadPasajes;
 		if(tipoDeAsiento == "ejecutiva"){
 			porcentaje = 1.20;
@@ -103,7 +105,7 @@ function mostrar()
 		}
 		precioFinal = precioBase * porcentaje;
 		alert("El precio del paquete es de: " + precioFinal);
-		//Punto A
+		//A) El total de pesos recaudados de cada vendedor.
 		switch(nombreVendedor){
 			case "huesos":
 				recaudacionHuesos = recaudacionHuesos + precioFinal;
@@ -115,14 +117,17 @@ function mostrar()
 				recaudacionQuinoto = recaudacionQuinoto + precioFinal;
 			break;
 		}
-		//Punto C y D
+		//Punto C y D 
+		//C) El porcentaje de paquetes de vuelos nacionales e internacionales vendidos. 
+		//D) Cual es la cantidad de paquetes de viaje vendidos que sean directos e internacionales.
+
 		if(tipoDeViaje == "Internacional"){
 			contadorViajesInternacionales++;
 		}
 		else{
 			contadorViajesNacionales++;
 		}
-		//Punto F
+		//F) El promedio de ventas de los paquetes de viajes con respecto al tipo de asiento seleccionado por el cliente.
 		switch(tipoDeAsiento){
 			case "economica":
 				contadorPaqueteEconomico++;
@@ -139,7 +144,7 @@ function mostrar()
 	}while(continua);
 
 	
-	//Punto B
+	//B) El vendedor que mas recaudo y la cantidad de pesos recaudados por ese vendedor.
 	if(recaudacionPepepeposo > recaudacionHuesos && recaudacionPepepeposo > recaudacionQuinoto)
 	{
 		vendedorConMayorRecaudacion = "Pepepeposo";
@@ -156,11 +161,11 @@ function mostrar()
 		}
 	}
 
-	//Punto C
-	porcentajeInternacional = contadorViajesInternacionales / cantidadTotalDePaquetesVendidos * 100;
-	porcentajeNacional = contadorViajesNacionales / cantidadTotalDePaquetesVendidos * 100;
+	//C) El porcentaje de paquetes de vuelos nacionales e internacionales vendidos.
+	porcentajeInternacional = (contadorViajesInternacionales *100)/ cantidadTotalDePaquetesVendidos;
+	porcentajeNacional = (contadorViajesNacionales * 100) / cantidadTotalDePaquetesVendidos;
 
-	//Punto F
+	//F) El promedio de ventas de los paquetes de viajes con respecto al tipo de asiento seleccionado por el cliente.
 	promedioEconomica = cantidadTotalDePaquetesVendidos / contadorPaqueteEconomico;
 	promedioEjecutivo = cantidadTotalDePaquetesVendidos / contadorPaqueteEjecutivo;
 	promedioPrimeraClase = cantidadTotalDePaquetesVendidos / contadorPaquetePrimeraClase;

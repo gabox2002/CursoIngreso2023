@@ -1,4 +1,8 @@
 // Gabriel Quispe DIV D grupo 3 E/I 10
+/*Al presionar el Boton, asignar una nota RANDOM al examen y mostrar:
+	"EXCELENTE" para notas igual a 9 o 10,
+	"APROBO;" para notas mayores a 4,
+	"Vamos, la proxima se puede" para notas menores a 4*/
 function mostrar()
 {
 	var nota;

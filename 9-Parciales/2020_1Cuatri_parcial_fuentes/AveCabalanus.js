@@ -1,5 +1,4 @@
-/******************************************************************************
-
+/*
 Enunciado:
 Una empresa de mercaderia nos pide un sistema de almacenamiento para sus productos.
 La empresa dispone de 3 bodegas para almacenar los productos: 
@@ -14,9 +13,7 @@ Se debera informar:
 a) Cual fue el producto con mas peso entre las tres bodegas, e indicar el promedio
 b) Cual fue la bodega con mas ingresos.
 c) Cual es la bodega mas llena.
-d) Porcentaje disponible de cada bodega.
-
-*******************************************************************************/
+d) Porcentaje disponible de cada bodega.*/
 function mostrar()
 {
 	let TOTAL_AVELLANEDA = 20000;
@@ -60,7 +57,8 @@ function mostrar()
 			pesoProducto = parseFloat(pesoProducto);
 		}while(isNaN(pesoProducto));
 
-		if(banderaPrimerPesoIngresado || pesoProducto > pesoMaximo){
+		if(pesoProducto > pesoMaximo || banderaPrimerPesoIngresado){//a) Cual fue el producto con mas peso entre las tres bodegas, e indicar el promedio
+
 			pesoMaximo = pesoProducto;
 			productoMaximo = descripcionProducto;
 			banderaPrimerPesoIngresado = false;
@@ -101,10 +99,12 @@ function mostrar()
 
 	}while(confirm("Desea realizar otro deposito?"));
 
-	//A:
+	//a) Cual fue el producto con mas peso entre las tres bodegas, e indicar el promedio
+
 	mensajeDeSalida = "a) El producto con mas peso es: " + productoMaximo + " con " + pesoMaximo + " KG.\ Su promedio es: " + pesoMaximo / (pesoAvellaneda + pesoCABA +pesoLanus);
 
-	//B:
+	//b) Cual fue la bodega con mas ingresos.
+
 	if(ingresosAvellaneda > ingresosCABA && ingresosAvellaneda > ingresosLanus){
 		mensajeDeSalida += "\nb) La bodega con mas ingresos es: Avellaneda";
 	}
@@ -117,7 +117,8 @@ function mostrar()
 		}
 	}
 
-	//C:
+	//c) Cual es la bodega mas llena.
+
 	if(pesoAvellaneda > pesoCABA && pesoAvellaneda > pesoLanus){
 		mensajeDeSalida += "\nc) La bodega mas llena es: Avellaneda";
 	}
@@ -130,7 +131,7 @@ function mostrar()
 		}
 	}
 
-	//D:
+	//d) Porcentaje disponible de cada bodega.
 	mensajeDeSalida += "\nd) Avellaneda: %" + pesoAvellaneda * 100 / TOTAL_AVELLANEDA + "\nCABA: % " + pesoCABA * 100 / TOTAL_CABA + "\nLanus: % " + pesoLanus * 100 / TOTAL_LANUS;
 
 	alert(mensajeDeSalida);

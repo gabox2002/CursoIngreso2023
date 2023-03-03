@@ -1,4 +1,12 @@
 // Gabriel Quispe DIV D grupo 3 Switch 06
+/* 
+Al ingresar una hora, informar:
+	si est&aacute; entre las 7 y las 11 : "Es de mañana.".
+	si est&aacute; entre las 12 y las 19 : "Es de tarde.".
+	si est&aacute; entre las 20 y las 24 o entre las 0 y las 6 : "Es de noche.".
+	si NO est&aacute; entre las 0 y las 24 : "la hora no existe.".
+*/
+
 function mostrar()
 {
 	var horaDelDia;

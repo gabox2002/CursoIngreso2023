@@ -10,7 +10,7 @@ function mostrar()
 	var seguir;
 	var promedio;
 
-	contador=0;
+	contador=0;   //CONTADORES Y ACUMULDORES siempre se inicializan
 	acumulador=0;
 	seguir='si';
 	

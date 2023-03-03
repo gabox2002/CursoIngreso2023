@@ -1,4 +1,5 @@
 // Gabriel Quispe DIV D grupo 3 Switch 08
+// Al seleccionar un destino informar si hace FRIO o CALOR en ese destino
 function mostrar()
 {
 	var destinoIngresado = txtIdDestino.value;

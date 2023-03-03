@@ -9,6 +9,10 @@ Se debe Informar al usuario lo siguiente:
 a) Del más barato de los alcohol, la cantidad de unidades y el fabricante
 b) Del tipo con mas unidades, el promedio por compra
 c) Cuántas unidades de jabones hay en total
+
+d) Del más caro de los jabones, la cantidad de unidades y el fabricante
+e) Del tipo de producto con más unidades en total de la compra, el promedio por compra
+f) Cuántas unidades de Barbijos se compraron en total
 */
 
 function mostrar()
@@ -32,8 +36,6 @@ function mostrar()
 	var fabricanteAlcoholBarato;
 	var tipoProductoMasUnidades;
 
-
-
 	contador = 0;
 	contadorAlcohol = 0;
 	contadorBarbijos = 0;
@@ -42,15 +44,12 @@ function mostrar()
 	acumuladorBarbijos = 0;
 	acumuladorAlcohol = 0;
 
-	while(contador < 5)
-	{
+	while(contador < 5){
 		tipoProducto = prompt("Ingrese el tipo de producto");
 		while(tipoProducto != "barbijo" && tipoProducto != "jabón" && tipoProducto != "alcohol")
 		{
 			tipoProducto = prompt("Ingrese nuevamente otro tipo de producto");
 		}
-
-		contador++;
 
 		precio = prompt("Ingrese el precio del producto");
 		precio = parseFloat(precio);
@@ -74,6 +73,8 @@ function mostrar()
 
 		fabricante = prompt("Ingrese el fabricante");
 
+		contador++;
+
 		switch(tipoProducto)
 		{
 			case "alcohol":
@@ -88,7 +89,6 @@ function mostrar()
 				}
 			break;
 			
-
 			case "jabón":
 				contadorJabones++;
 				acumuladorJabones = acumuladorJabones + cantidadUnidades;
@@ -98,13 +98,12 @@ function mostrar()
 				acumuladorBarbijos = acumuladorBarbijos + cantidadUnidades;
 			break;
 		}
-		//b) Del tipo con mas unidades, el promedio por compra
 		
+	}// fin delwhile
 
-	}
 	if(acumuladorAlcohol>acumuladorJabones && acumuladorAlcohol > acumuladorBarbijos)
 		{
-			promedio = acumuladorAlcohol / contadorAlcohol;
+			promedio = acumuladorAlcohol / contadorAlcohol; //b) Del tipo con mas unidades, el promedio por compra
 			tipoProductoMasUnidades = "alcohol";
 		}
 		else

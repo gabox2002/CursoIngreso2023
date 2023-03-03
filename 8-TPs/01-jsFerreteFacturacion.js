@@ -38,7 +38,8 @@ function Promedio ()
     precioTres = parseFloat(precioTres);
 
     resultadoPromedio = (precioUno + precioDos + precioTres)/3;
-    resultadoPromedio = resultadoPromedio.toFixed(2);
+    resultadoPromedio = resultadoPromedio.toFixed(2);//toFixed nos indica cuantos decimales queremos ver y no sean infinitos
+
 
     alert("El promedio de los productos es " + resultadoPromedio);
 }
@@ -62,7 +63,3 @@ function PrecioFinal ()
 
     alert("El precio final con Iva incluido es " + resultadoConIva);  //resultadoConIva = resultadoConIva.toFixed(2);
 }
-
-/* 
-toFixed nos indica cuantos decimales queremos ver y no sean infinitos
-*/

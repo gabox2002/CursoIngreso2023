@@ -8,8 +8,8 @@ function mostrar()
 	var numeroMaximo; //NO HAY QUE INICIAlizaRLAS
 	var numeroMinimo; //NO HAY QUE INICIAlizaRLAS
 	var respuesta;
-	//iniciar variables
 	
+	//iniciar variables
 	respuesta="si";
 
 	while (respuesta == "si"){

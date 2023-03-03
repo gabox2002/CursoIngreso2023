@@ -1,4 +1,5 @@
 // Gabriel Quispe DIV D grupo 3 Switch 05
+// Al ingresar una hora, informar: si esta; entre las 7 y las 11 : "Es de mañana.".
 function mostrar()
 {
 	var horaDelDia;

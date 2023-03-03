@@ -1,5 +1,7 @@
 /* Gabriel Quispe DIV D Grupo 3 Ejercicio Integrador Clase 4
-Ingresar 3 edades por prompt. Determinar si la primera es mayor que la segunda y menor que la tercera o la tercera es menor que la segunda. Mostrar por alert si se cumple o no.
+Ingresar 3 edades por prompt. 
+Determinar si la primera es mayor que la segunda y menor que la tercera o la tercera es menor que la segunda. 
+Mostrar por alert si se cumple o no.
 */
 function mostrar()
 {

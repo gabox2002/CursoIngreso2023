@@ -1,4 +1,5 @@
 // Gabriel Quispe DIV D grupo 3 E/I 02
+//Al ingresar una edad debemos informar solo si la persona es mayor de edad
 function mostrar()
 {
 	var edad;
