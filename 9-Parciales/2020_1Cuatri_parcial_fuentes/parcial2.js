@@ -31,21 +31,31 @@ var edadIngresada;
 var pesoIngresado;
 var generoIngresado;
 var pesoLevantadoPressbanca;
-var pesoLevantadoSantadilla;
-var totalSentadillas;
+var pesoLevantadoSentadilla;
+var pesoTotalSentadillas;
 var totalFemenino;
 var totalMasculino;
 var totalOtro;
 var respuesta;
 var pesoMaxLevantado;
-var banderaMayorPeso;
 var promedioSentadilla;
+var porcentajeFemenino;
+var porcentajeMasculino;
+var porcentajeOtro;
+var acumuladorSentadillaFemenino;
+var acumuladorSentadillaMasculino;
+var acumuladorSentadillaOtro;
 
 respuesta = true;
 totalFemenino=0;
 totalMasculino=0;
 totalOtro=0;
-banderaMayorPeso=true;
+pesoTotalSentadillas=0;
+contadorClientes=0;
+acumuladorSentadillaFemenino=0;
+acumuladorSentadillaMasculino=0;
+acumuladorSentadillaOtro=0;
+
 
 while (respuesta== true){
 	nombreIngresado = prompt("ingrese el nombre del cliente:");
@@ -59,7 +69,7 @@ while (respuesta== true){
 
 	pesoIngresado = prompt("Ingrese peso del cliente");
     pesoIngresado = parseInt(pesoIngresado);
-	while(pesoIngresado<0){
+	while(pesoIngresado<1){//Diferente de cero
 		pesoIngresado = prompt("Reingrese peso del cliente");
     	pesoIngresado = parseInt(pesoIngresado);
 	}
@@ -77,78 +87,69 @@ while (respuesta== true){
     	pesoLevantadoPressbanca = parseInt(pesoLevantadoPressbanca);
 	}
 
-	pesoLevantadoSantadilla = prompt("Ingrese el peso levantado en sentadilla: ")
-	pesoLevantadoSantadilla = parseInt(pesoLevantadoSantadilla);
-	while(pesoLevantadoSantadilla<0){
-		pesoLevantadoSantadilla = prompt("Reingrese el peso levantado en sentadilla:");
-    	pesoLevantadoSantadilla = parseInt(pesoLevantadoSantadilla);
+	pesoLevantadoSentadilla = prompt("Ingrese el peso levantado en sentadilla: ")
+	pesoLevantadoSentadilla = parseInt(pesoLevantadoSentadilla);
+	while(pesoLevantadoSentadilla<0){
+		pesoLevantadoSentadilla = prompt("Reingrese el peso levantado en sentadilla:");
+    	pesoLevantadoSentadilla = parseInt(pesoLevantadoSentadilla);
 	}
 
 	switch (generoIngresado){
 		case "femenino":
 			totalFemenino++;
+			acumuladorSentadillaFemenino += pesoLevantadoSentadilla;
 			break;
 
 		case "masculino":
 			totalMasculino++;
-			if(pesoIngresado>pesoMaxLevantado || banderaMayorPeso == true){
-				pesoMaxLevantado = pesoIngresado;
+			if(pesoLevantadoPressbanca>pesoMaxLevantado || totalMasculino == 0){//C
+				pesoMaxLevantado = pesoLevantadoPressbanca;
 				nombremaxPeso = nombreIngresado;
-				banderaMayorPeso = false;
 			}
-
+			acumuladorSentadillaMasculino += pesoLevantadoSentadilla;
 			break;
 
 		case "otro":
-			totalOtro++;			
+			totalOtro++;
+			acumuladorSentadillaOtro += pesoLevantadoSentadilla;			
 			break;
 		
 	}
-
-	totalSentadillas += pesoLevantadoSantadilla
+	contadorClientes++;
+	pesoTotalSentadillas += pesoLevantadoSentadilla;
 
 	respuesta = confirm("Deseas ingresar otro cliente?")
 }//Fin de while
 
-promedioSentadilla = totalSentadillas / (totalMasculino + totalFemenino + totalOtro);
 
+promedioSentadilla = pesoTotalSentadillas / contadorClientes;
 document.write("El promedio de peso levantado en sentadilla es: " + promedioSentadilla + "<br>");
 
-if(totalMasculino>totalFemenino && totalMasculino > totalOtro)
-	{
-		generoMasPesoLevantado = "Masculino";
-		document.write("El genero que mas levanto sentadilla es: " + generoMasPesoLevantado + "<br>");
+document.write(" El nombre y peso de la persona de género masculino que tiene el mayor peso levantado  en press de banca es: " + nombremaxPeso + " con un peso de: " + pesoMaxLevantado +"<br>");
 
+if(totalMasculino>totalFemenino && totalMasculino > totalOtro){//D) El genero que mas peso ha levantado en total realizando sentadillas"	
+		generoMasPesoLevantado = "Masculino";
+		document.write("El genero Masculino levanto mas sentadilla con: " + generoMasPesoLevantado + "<br>");
 	}
 	else
 	{
-		if(totalFemenino>totalOtro && totalFemenino>totalMasculino)
-		{
+		if(totalFemenino>totalOtro && totalFemenino>totalMasculino){
 			generoMasPesoLevantado= "Femenino";
-			document.write("El genero que mas levanto sentadilla es: " + generoMasPesoLevantado + "<br>");
+			document.write("El genero Femenino  levanto mas sentadilla con: " + generoMasPesoLevantado + "<br>");
 		}
 		else
 		{
 			generoMasPesoLevantado = "Otro";
-			document.write("El genero que mas levanto sentadilla es: " + generoMasPesoLevantado + "<br>");
+			document.write("Otro genero levanto mas sentadilla con: " + generoMasPesoLevantado + "<br>");
 		}
 	}
 
+	//No hago la restriccion porque contadorClientes unca es cero
+porcentajeMasculino = totalMasculino *100 / contadorClientes;
+porcentajeFemenino = totalFemenino *100 / contadorClientes;
+porcentajeOtro = totalOtro *100	/ contadorClientes;
 
-sumaTotales= totalFemenino + totalMasculino + totalOtro;
-if(sumaTotales>0){
-	porcentajeMasculino = totalMasculino / sumaTotales;
-	porcentajeFemenino = totalFemenino / sumaTotales;
-	porcentajeOtro = totalOtro / sumaTotales;
-
-	document.write("El porcentaje de clientes por género es para  " + "masculinos: " + porcentajeMasculino+ "femenino: " + porcentajeFemenino + " y otro: " + porcentajeOtro+"<br>");
-}
-	else{
-		document.write("El porcentaje de clientes por género no se pudo calcular"+"<br>");
-	}
-
-	document.write(" El nombre y peso de la persona de género masculino que tiene el mayor peso levantado  en press de banca es: " + nombremaxPeso + " con un peso de: " + pesoMaxLevantado +"<br>");
-
+	document.write("El porcentaje de clientes por género es: " + "masculinos: " + porcentajeMasculino+ "%. Femenino: " + porcentajeFemenino + "% y otro: " + porcentajeOtro + "% <br>");
 
 
 

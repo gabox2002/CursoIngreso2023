@@ -59,14 +59,9 @@ function mostrar()
 	  let nombre = prompt("Ingrese el nombre del titular:");
 	  if (!nombre) break;
 	
-	  let lugar = prompt(
-		"Ingrese el lugar (Puerto Madryn, Villa Gessel o Cordoba):"
-	  );
+	  let lugar = prompt("Ingrese el lugar (Puerto Madryn, Villa Gessel o Cordoba):" );
 	  while (
-		lugar !== "Puerto Madryn" &&
-		lugar !== "Villa Gessel" &&
-		lugar !== "Cordoba"
-	  ) {
+		lugar != "Puerto Madryn" &&	lugar !== "Villa Gessel" &&	lugar !== "Cordoba") {
 		lugar = prompt(
 		  "Error, ingrese un lugar válido (Puerto Madryn, Villa Gessel o Cordoba):"
 		);
@@ -133,8 +128,6 @@ function mostrar()
 
 
 
-
-
-
+	}
 
 }

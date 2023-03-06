@@ -35,7 +35,7 @@ contadorFemenino = 0;
 contadorMayores =0;
 respuesta = true;
 
-do{
+while(contadorTotalParticipantes < 50 ){
     nombreIngresado = (prompt("Ingrese su nombre"));
     
     do{ 
@@ -70,7 +70,7 @@ do{
     contadorTotalParticipantes++;
     respuesta = confirm("¿Desea ingresar mas datos?");
     
-}while(contadorTotalParticipantes < 50 );
+}
 
 if(contadorFemenino > 0){
     promedioEdadFemenino = sumaEdadFemenino / contadorFemenino;//c no se divide por cero
