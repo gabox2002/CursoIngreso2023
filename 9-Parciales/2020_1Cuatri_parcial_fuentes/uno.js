@@ -63,7 +63,7 @@ function mostrar()
 		cantidadUnidades = prompt("Ingrese la cantidad de unidades");
 		cantidadUnidades = parseInt(cantidadUnidades);
 
-		while(cantidadUnidades < 1 || cantidadUnidades > 1000)
+		while(cantidadUnidades < 1 || cantidadUnidades > 1000)//diferente de cero y menor a 1000
 		{
 			cantidadUnidades = prompt("Ingrese nuevamente la cantidad de unidades");
 			cantidadUnidades = parseInt(cantidadUnidades);

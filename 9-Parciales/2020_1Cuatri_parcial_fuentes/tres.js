@@ -1,7 +1,9 @@
-
-
-
-/*En el ingreso a un viaje en avion nos solicitan nombre , edad, sexo("f" o "m") y estado civil("soltero", "casado" o "viudo")y temperatura corporal.
+/*En el ingreso a un viaje en avion nos solicitan 
+nombre
+edad
+sexo("f" o "m") 
+estado civil("soltero", "casado" o "viudo") 
+temperatura corporal.
 a) El nombre de la persona con mas temperatura.
 b) Cuantos mayores de edad estan viudos
 c) La cantidad de hombres que hay solteros o viudos.
@@ -40,66 +42,73 @@ function mostrar()
     {
         nombre = prompt("Ingrese su nombre");
 
-    edad = prompt("Ingrese su edad");
-    edad = parseInt(edad);
+        edad = prompt("Ingrese su edad");
+        edad = parseInt(edad);
+        while(edad>0){
+            edad = prompt("Ingrese su edad");
+            edad = parseInt(edad);
+        }
 
-    sexo = prompt("Ingrese su sexo: f/m ");
-    estadoCivil = prompt("Ingrese su estado civil: soltero/casado/viudo");
-
-    while(estadoCivil != "soltero" && estadoCivil != "casado" && estadoCivil != "viudo")
-    {
+        sexo = prompt("Ingrese su sexo: f (para femenino); m (para masculino)");
+        while(sexo != "f" && sexo!= "m"){
+            sexo = prompt("Ingrese su sexo: f (para femenino); m (para masculino)");
+        }
+        
+        estadoCivil = prompt("Ingrese su estado civil: soltero/casado/viudo");
+        while(estadoCivil != "soltero" && estadoCivil != "casado" && estadoCivil != "viudo"){
         estadoCivil = prompt("Reingrese su estado civil: soltero/casado/viudo");
-    }
+        }
 
-    temperaturaCorporal = prompt("Ingrese su temperatura");
-    temperaturaCorporal = parseInt(temperaturaCorporal);
+        temperaturaCorporal = prompt("Ingrese su temperatura");
+        temperaturaCorporal = parseInt(temperaturaCorporal);
 
     switch(estadoCivil)
     {
         case "viudo":
-            if(edad > 17)
-            {
+            if(edad > 17){
                 contadorMayorViudos ++;  // b) Cuantos mayores de edad estan viudos
             }
             break;
         case "soltero":    // c) La cantidad de hombres que hay solteros
-            if(sexo == "m")
-            {
+            if(sexo == "m"){
                 contadorSolteros ++;
                 acumuladorEdadSolteros += edad;
-                promedioSolteros = acumuladorEdadSolteros / contadorSolteros; // e) El promedio de edad entre los hombres solteros.
             }
-
             break;
     }
 
     continuar = confirm("¿Desea ingresar mas datos?");
+    }//FIN DEL WHILE 
+
+    // e) El promedio de edad entre los hombres solteros.
+    if(contadorSolteros>0) {
+        promedioSolteros = acumuladorEdadSolteros / contadorSolteros; 
+        document.write("El promedio de edad entre hombres soltero es de: " + promedioSolteros);
     }
+    else{
+        document.write("El promedio de edad entre hombres soltero NO se puedo calcular");
+
+    }
+    
     // a) El nombre de la persona con mas temperatura.
 
-    if (banderaDelPrimero == true) 
-    {
+    if (banderaDelPrimero == true){
         nombreMasTemp = temperaturaCorporal;
         nombreMenosTemp = temperaturaCorporal;
         banderaDelPrimero = false;
-    };
+    }
 
-    if (nombreMasTemp > temperaturaCorporal) 
-    {
+    if (nombreMasTemp > temperaturaCorporal){
         nombreMasTemp = temperaturaCorporal;
-
-    } else 
-    {
-
-        if (temperaturaCorporal < nombreMenosTemp) 
-        {
+    } 
+    else{
+        if (temperaturaCorporal < nombreMenosTemp){
             nombreMenosTemp = temperaturaCorporal;
-        };
-    };
+        }
+    }
 
 // d) cuantas personas de la tercera edad( mas de 60 años) , tienen mas de 38 de temperatura
-    if(edad > 60 && temperaturaCorporal > 38)
-    {
+    if(edad > 60 && temperaturaCorporal > 38){
         contadorTempMayor ++;
     }
 
@@ -111,6 +120,5 @@ function mostrar()
 
     document.write("Personas de la tercera edad tienen mas de 30 de temperatura: " + contadorTempMayor + "<br>");
 
-    document.write("Promedio de edad entre hombres soltero es de: " + promedioSolteros);
 
 }
